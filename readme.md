@@ -8,4 +8,6 @@
 
 ```cmd
 npm i canvas
+npm i discord.js
+npm i mongoose
 ```
