@@ -18,7 +18,6 @@ module.exports = {
             return context.font;
         };
         const member = await message.mentions.users.first()
-        console.log(member.id)
         if (!member) {
             message.channel.send('Mention someone to get their vouches')
         }
