@@ -41,6 +41,9 @@ client.on('messageCreate', message => {
     if(command === 'vouches') {
         client.commands.get('vouches').execute(message, args, client)
     }
+    if(command === 'delvouch' || command === 'deletevouch') {
+        client.commands.get('delvouch').execute(message, args, client)
+    }
 });
 
 client.login(process.env.TOKEN)

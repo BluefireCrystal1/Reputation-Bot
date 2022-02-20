@@ -33,9 +33,9 @@ module.exports = {
             context.fillStyle = '#ffffff';
             context.fillText(`${member.username}#${member.discriminator}`, canvas.width / 2.5, canvas.height / 1.8);
 
-            context.font = context.font = applyText(canvas, `Vouches: ${profileData.vouches}`);;
+            context.font = context.font = applyText(canvas, `Vouches: ${profileData.vouches-1}`);;
             context.fillStyle = '#ffffff';
-            context.fillText(`Vouches: ${profileData.vouches}`, 281, 199);
+            context.fillText(`Vouches: ${profileData.vouches-1}`, 281, 199);
 
             context.beginPath();
             context.arc(125, 125, 100, 0, Math.PI * 2, true);
