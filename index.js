@@ -4,7 +4,7 @@ const fs = require('fs')
 const mongoose = require('mongoose')
 require('dotenv').config()
 
-const prefix = ";"
+const prefix = "+"
 
 client.commands = new Collection();
 
