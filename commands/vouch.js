@@ -37,7 +37,7 @@ module.exports = {
             })
             const e = new MessageEmbed()
                 .setTitle('Vouch Added!')
-                .setDescription(`Vouch Done! ${member.username} Now has ${profileData.vouches-1} Vouches!`)
+                .setDescription(`Vouch Done! ${member.username} Now has ${profileData.vouches} Vouches!`)
                 .addFields(
                     { name: 'Vouched for:', value: `${member.username}` }
                 )
