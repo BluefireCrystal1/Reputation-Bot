@@ -61,9 +61,9 @@ client.on('guildMemberAdd', async member => {
         const avatar = await Canvas.loadImage(member.displayAvatarURL({ format: 'png' }));
         context.drawImage(avatar, 25, 25, 200, 200);
         const attachment = new MessageAttachment(canvas.toBuffer(), 'image.png');
-        channel.send({files: [attachment]})
+        channel.send({ files: [attachment] })
     })
-//----------
+    //----------
 })
 
 client.on('messageCreate', message => {
@@ -73,18 +73,53 @@ client.on('messageCreate', message => {
 
     const args = message.content.slice(prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
-    
-    if(command === 'ping') {
+
+    if (command === 'ping') {
         client.commands.get('ping').execute(message, args, client)
     }
-    if(command === 'vouch') {
+    if (command === 'vouch') {
         client.commands.get('vouch').execute(message, args, client)
     }
-    if(command === 'vouches') {
+    if (command === 'vouches') {
         client.commands.get('vouches').execute(message, args, client)
     }
-    if(command === 'delvouch' || command === 'deletevouch') {
+    if (command === 'delvouch' || command === 'deletevouch') {
         client.commands.get('delvouch').execute(message, args, client)
+    }
+    if (command === 'help') {
+        client.commands.get('help').execute(message, args, client)
+    }
+});
+
+client.on('interactionCreate', async interaction => {
+    if (!interaction.isButton()) return
+    if (interaction.customId.includes("Button")) {
+        const modEmbed = new MessageEmbed()
+        if (interaction.customId === 'modButton') {
+            modEmbed.setTitle("Moderation Commands!")
+                .setDescription(``)
+                .setColor("#00C7FF")
+                .setFooter({ text: `Requested By ${interaction.member.user.username}`, iconURL: interaction.member.displayAvatarURL() })
+
+            await interaction.reply({ embeds: [modEmbed], ephemeral: true });
+        }
+        if (interaction.customId === 'funButton') {
+            modEmbed.setTitle("Fun Commands!")
+                .setDescription(``)
+                .setColor("#00C7FF")
+                .setFooter({ text: `Requested By ${interaction.member.user.username}`, iconURL: interaction.member.displayAvatarURL() })
+            await interaction.reply({ embeds: [modEmbed], ephemeral: true });
+        }
+        if (interaction.customId === 'utilityButton') {
+            modEmbed.setTitle("Utility Commands!")
+                .setDescription(`\`+delvouch\` | Deletes someones vouches
+                                 \`+vouch\` | Adds vouch
+                                 \`+vouches\` | Shows the amount of vouches someone has
+                                 \`+ping\` | Bot ping`)
+                .setColor("#00C7FF")
+                .setFooter({ text: `Requested By ${interaction.member.user.username}`, iconURL: interaction.member.displayAvatarURL() })
+            await interaction.reply({ embeds: [modEmbed], ephemeral: true });
+        }
     }
 });
 
