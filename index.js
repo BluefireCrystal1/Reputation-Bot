@@ -38,7 +38,8 @@ const applyText = (canvas, text) => {
 
 client.on('guildMemberAdd', async member => {
     //----------
-    const channel = member.guild.channels.cache.get('946635558199889950')
+    const guild = client.guilds.cache.get('946631049029496852')
+    const channel = guild.channels.cache.get('946635558199889950')
     const canvas = Canvas.createCanvas(700, 250);
     const context = canvas.getContext('2d');
 
