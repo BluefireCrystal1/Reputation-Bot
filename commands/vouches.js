@@ -23,6 +23,7 @@ module.exports = {
         }
         let profileData = await profileModel.findOne({ userId: member.id })
         //----------
+        if(profileData) {
         const canvas = Canvas.createCanvas(700, 250);
         const context = canvas.getContext('2d');
 
@@ -47,6 +48,7 @@ module.exports = {
             const attachment = new MessageAttachment(canvas.toBuffer(), 'image.png');
             message.channel.send({files: [attachment]})
         })
+    }
     //----------
 }
 }
