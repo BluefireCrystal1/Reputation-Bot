@@ -7,11 +7,13 @@ module.exports = {
         const content = message.content.replace("+say", "")
         const embed = new MessageEmbed()
         .setAuthor({ name: message.member.user.username, iconURL: message.author.displayAvatarURL() })
-        .setDescription(content)
+        .setFields(
+            { name: "Message", value: content }
+        )
         .setColor("#00C7FF")
         .setTimestamp(message.createdTimestamp)
         .setFooter({ text: `Message ID (Deleted): ${message.id}`, iconURL: message.guild.iconURL() })
         message.channel.send({ embeds: [embed] })
-        message.delete()
+        message.delete().catch((console.error))
     }
 }
