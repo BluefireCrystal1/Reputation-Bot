@@ -93,6 +93,9 @@ client.on('messageCreate', message => {
     if (command === 'say') {
         client.commands.get('say').execute(message, args, client)
     }
+    if (command === 'meme') {
+        client.commands.get('meme').execute(message, args, client)
+    }
 });
 
 client.on('interactionCreate', async interaction => {
