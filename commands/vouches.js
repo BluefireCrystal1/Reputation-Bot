@@ -19,7 +19,7 @@ module.exports = {
         };
         const member = await message.mentions.users.first()
         if (!member) {
-            message.channel.send('Mention someone to get their vouches')
+            return message.channel.send('Mention someone to get their vouches')
         }
         let profileData = await profileModel.findOne({ userId: member.id })
         //----------

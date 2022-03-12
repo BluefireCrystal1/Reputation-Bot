@@ -90,6 +90,9 @@ client.on('messageCreate', message => {
     if (command === 'help') {
         client.commands.get('help').execute(message, args, client)
     }
+    if (command === 'say') {
+        client.commands.get('say').execute(message, args, client)
+    }
 });
 
 client.on('interactionCreate', async interaction => {
