@@ -100,6 +100,15 @@ client.on('messageCreate', message => {
     if (command === 'meme') {
         client.commands.get('meme').execute(message, args, client)
     }
+    if (command === 'ban') {
+        client.commands.get('ban').execute(message, args, client)
+    }
+    if (command === 'kick') {
+        client.commands.get('kick').execute(message, args, client)
+    }
+    if (command === 'unban') {
+        client.commands.get('unban').execute(message, args, client)
+    }
 });
 
 client.on('interactionCreate', async interaction => {
