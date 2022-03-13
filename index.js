@@ -24,6 +24,10 @@ client.once('ready', () => {
             keepAlive: true
         }).then(console.log("DB connected!!"));
     console.log(`Connected! Logged in as ${client.user}`)
+    client.user.setPresence({
+        status: 'dnd'
+    })
+    client.user.setActivity(`https://discord.gg/mctown`, { type: 'WATCHING' });
 });
 const applyText = (canvas, text) => {
     const context = canvas.getContext('2d');
