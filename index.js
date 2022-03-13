@@ -106,9 +106,6 @@ client.on('messageCreate', message => {
     if (command === 'kick') {
         client.commands.get('kick').execute(message, args, client)
     }
-    if (command === 'unban') {
-        client.commands.get('unban').execute(message, args, client)
-    }
 });
 
 client.on('interactionCreate', async interaction => {
