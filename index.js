@@ -108,7 +108,9 @@ client.on('interactionCreate', async interaction => {
         const modEmbed = new MessageEmbed()
         if (interaction.customId === 'modButton') {
             modEmbed.setTitle("Moderation Commands!")
-                .setDescription(``)
+                .setDescription(`\`+ban\` | Bans someone
+                                 \`+unban\` | Unbans a banned user
+                                 \`+kick\` | Kicks someone`)
                 .setColor("#00C7FF")
                 .setFooter({ text: `Requested By ${interaction.member.user.username}`, iconURL: interaction.member.displayAvatarURL() })
 
@@ -116,7 +118,7 @@ client.on('interactionCreate', async interaction => {
         }
         if (interaction.customId === 'funButton') {
             modEmbed.setTitle("Fun Commands!")
-                .setDescription(``)
+                .setDescription(`\`+meme [subreddit]\` | Shows a meme`)
                 .setColor("#00C7FF")
                 .setFooter({ text: `Requested By ${interaction.member.user.username}`, iconURL: interaction.member.displayAvatarURL() })
             await interaction.reply({ embeds: [modEmbed], ephemeral: true });
@@ -126,7 +128,8 @@ client.on('interactionCreate', async interaction => {
                 .setDescription(`\`+delvouch\` | Deletes someones vouches
                                  \`+vouch\` | Adds vouch
                                  \`+vouches\` | Shows the amount of vouches someone has
-                                 \`+ping\` | Bot ping`)
+                                 \`+ping\` | Bot ping
+                                 \`+say\` | Says something for you`)
                 .setColor("#00C7FF")
                 .setFooter({ text: `Requested By ${interaction.member.user.username}`, iconURL: interaction.member.displayAvatarURL() })
             await interaction.reply({ embeds: [modEmbed], ephemeral: true });
