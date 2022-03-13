@@ -27,7 +27,7 @@ client.once('ready', () => {
     client.user.setPresence({
         status: 'dnd'
     })
-    client.user.setActivity(`https://discord.gg/mctown`, { type: 'WATCHING' });
+    client.user.setActivity(`Social MC Town`, { type: 'WATCHING' });
 });
 const applyText = (canvas, text) => {
     const context = canvas.getContext('2d');
