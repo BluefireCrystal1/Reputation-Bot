@@ -115,7 +115,6 @@ client.on('interactionCreate', async interaction => {
         if (interaction.customId === 'modButton') {
             modEmbed.setTitle("Moderation Commands!")
                 .setDescription(`\`+ban\` | Bans someone
-                                 \`+unban\` | Unbans a banned user
                                  \`+kick\` | Kicks someone`)
                 .setColor("#00C7FF")
                 .setFooter({ text: `Requested By ${interaction.member.user.username}`, iconURL: interaction.member.displayAvatarURL() })
