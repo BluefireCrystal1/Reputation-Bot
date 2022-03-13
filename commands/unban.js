@@ -6,7 +6,6 @@ module.exports = {
     async execute(message, args, client) {
         const idOfMember = args[0]
         const member = await client.users.cache.find(user => user.id === idOfMember)
-        console.log(member)
         if (message.member.permissions.has("BAN_MEMBERS")) {
             const memberNotFoundErrorEmbed = new MessageEmbed()
                 .setTitle("Error!")
@@ -17,23 +16,23 @@ module.exports = {
                 .setDescription("Please enter the id of the person who you want to unban")
                 .setColor('RED')
             if (!member) return message.channel.send({ embeds: [memberNotFoundErrorEmbed] })
-            if(args[1] === isNaN()) return message.channel.send({ embeds: [notIdError] })
+            if (args[1] === isNaN()) return message.channel.send({ embeds: [notIdError] })
             const successfulEmbed = new MessageEmbed()
                 .setTitle("Successfuly Unanned!")
                 .setDescription(`Unbanned`)
                 .setColor('RED')
-            member.unban()
+            await interaction.guild.bans.remove(member).catch((err))
             message.channel.send({ embeds: [successfulEmbed] })
-        }else {
+        } else {
             const missingPermsEmbed = new MessageEmbed()
                 .setTitle("Error!")
                 .setDescription("You don\'t have enough permissions")
                 .setColor('RED')
-            message.channel.send({embeds: [missingPermsEmbed]})
+            message.channel.send({ embeds: [missingPermsEmbed] })
         } try {
 
-        }catch(err) {
-    
+        } catch (err) {
+
         }
     }
 }
